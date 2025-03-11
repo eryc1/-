@@ -4,18 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monad 测试网</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* 标题样式 */
+        .header {
+            background-color: #f5b041;
+            color: #000;
+            padding: 8px; /* 减小内边距 */
+            margin-bottom: 15px; /* 减小下边距 */
+            border-radius: 5px;
+            font-size: 20px; /* 减小字体大小 */
+        }
+
+        /* 任务网格布局 */
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 每行 5 列 */
+            gap: 5px; /* 减小间距 */
+            max-width: 900px; /* 设置最大宽度，防止拉伸 */
+            margin: 0 auto;
+        }
+
+        /* 任务项样式 */
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px; /* 减小内边距 */
+            background-color: #fff;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            height: 30px; /* 减小高度 */
+            color: #000;
+            font-size: 14px; /* 减小字体大小 */
+        }
+
+        .task-item.checked {
+            background-color: #d4edda;
+            text-decoration: line-through;
+            color: #155724;
+        }
+
+        .task-item .checkbox {
+            width: 16px; /* 减小勾选框大小 */
+            height: 16px;
+            border: 2px solid #28a745;
+            border-radius: 3px;
+            margin-right: 5px; /* 减小右边距 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .task-item.checked .checkbox {
+            background-color: #28a745;
+        }
+
+        .task-item .checkbox::after {
+            content: '✓';
+            color: #fff;
+            font-size: 12px; /* 减小勾号大小 */
+            display: none;
+        }
+
+        .task-item.checked .checkbox::after {
+            display: block;
+        }
+
+        /* 任务编号 */
+        .task-number {
+            margin-right: 5px; /* 减小右边距 */
+            font-weight: bold;
+            font-size: 14px; /* 减小字体大小 */
+        }
+
+        /* 底部标签 */
+        .footer {
+            background-color: #f5b041;
+            color: #000;
+            padding: 8px; /* 减小内边距 */
+            margin-top: 15px; /* 减小上边距 */
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 14px; /* 减小字体大小 */
+        }
+
+        /* 提示框 */
+        .notice {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px; /* 减小内边距 */
+            margin-top: 15px; /* 减小上边距 */
+            max-width: 600px; /* 减小最大宽度 */
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            color: #000;
+        }
+
+        .notice h2 {
+            font-size: 14px; /* 减小字体大小 */
+            margin: 0 0 8px 0; /* 减小下边距 */
+        }
+
+        .notice p {
+            font-size: 12px; /* 减小字体大小 */
+            margin: 0;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .task-grid {
+                grid-template-columns: repeat(2, 1fr); /* 移动端每行 2 列 */
+            }
+        }
+    </style>
 </head>
 <body>
     <h1 class="header">MONAD测试网</h1>
-    <div id="task-container" class="task-grid">
-        <!-- 任务会在这里显示 -->
-    </div>
-    <div class="footer">迷のMonad交互</div>
+    <div id="task-container" class="task-grid"></div>
+    <div class="footer">hiro-怪怪</div>
     <div class="notice">
         <h2>提示：</h2>
-        <p>第一 每次打开该任务网站 所有任务列表都会随机排列 产生随机性 避免相似交互被女巫 第二 每次点击对应内容交互后都会打勾记录 避免忘记某项任务</p>
+        <p>这里支持MONAD测试网的交互任务列表，请不要一次性交互所有任务，避免被标记为女巫攻击。建议：第一、二天打开这里刷新，筛选任务做交互。筛选规则：看任务状态，0的任务优先做，1的已经做过（是绿色勾选状态），按提示操作。</p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const tasks=[{name:"Apriori质押",url:"https://stake.apr.io/"},{name:"Kuru合约交易",url:"https://www.kuru.io/markets"},{name:"Acura手机挖矿",url:"https://acurast.com/processor/"},{name:"Accountable游戏",url:"https://game.accountable.capital/"},{name:"Meme交易",url:"https://testnet.nad.fun/ref/md1Zj6"},{name:"Morkie的NFT",url:"https://morkie.xyz/monad"},{name:"Uni流换",url:"https://app.uniswap.org/swap"},{name:"OwltI部署合约",url:"https://owlto.finance/deploy/"},{name:"Monad域名",url:"https://magiceden.io/collections/monad-testnet/0x3019bf1dfb84e5b46ca9d0eec37de08a59a41308"},{name:"Orbiter跨链",url:"https://testnet.orbiter.finance/en?src_chain=11155111&tgt_chain=10143&src_token=ETH"},{name:"Bebop刷交易",url:"https://bebop.xyz/trade?network=monad&sell=MON&buy=WMON"},{name:"Aicraft投票",url:"https://aicraft.fun/projects/fizen"},{name:"Talentum任务",url:"https://monad.talentum.id/projects"},{name:"Sparkballs NFT",url:"https://magiceden.io/mint-terminal/monad-testnet/0xa951bb8126d81d6aeaf73cc335fc7b7444df9520"},{name:"Curvance借贷",url:"https://app.curvance.com/"},{name:"Chogstars mint NFT",url:"https://testnet.lilchogstars.com/"},{name:"Alchemy的NFT",url:"https://magiceden.io/mint-terminal/monad-testnet/0x436ee7219bb099f71c9db9c7de8862a9bde891ae"},{name:"The Pipeline NFT",url:"https://the-pipeline.testnet.nfts2.me/"},{name:"Purple Friends NFT",url:"https://magiceden.io/mint-terminal/monad-testnet/0xfd3b54bd826cea09d15e87f95a869ecf3e462f92"},{name:"Nerzo的NFT",url:"https://www.nerzo.xyz/monad"},{name:"L3任务",url:"https://app.layer3.xyz/campaigns/monad-ecosystem-campaign"},{name:"DeMask swap/NFT",url:"https://app.demask.finance/launchpad"},{name:"Early Tester Monad NFT",url:"https://magiceden.io/mint-terminal/monad-testnet/0xb2ea0ff3ad4134367fb7dc75d48b3493e5a09c81"},{name:"Ambient交易",url:"https://monad.ambient.finance/"},{name:"bean swap任务",url:"https://perp.bean.exchange/#/trade"},{name:"Nostra借贷",url:"https://monad.nostra.finance/"},{name:"Magma质押",url:"https://www.magmastaking.xyz/?invitedBy=6R5mji"},{name:"Fantasy卡牌",url:"https://monad.fantasy.top/"}];const taskContainer=document.getElementById("task-container");function showTasks(){const fragment=document.createDocumentFragment();const shuffledTasks=[...tasks].sort(()=>Math.random()-0.5);shuffledTasks.forEach((task,index)=>{const taskDiv=document.createElement("div");taskDiv.classList.add("task-item");taskDiv.innerHTML=`<span class="task-number">${index+1}</span><span class="task-text">${task.name}</span><span class="checkbox"></span>`;if(sessionStorage.getItem(task.name)==="true"){taskDiv.classList.add("checked");}taskDiv.addEventListener("click",()=>{if(task.url){window.open(task.url,"_blank");}setTimeout(()=>{taskDiv.classList.toggle("checked");sessionStorage.setItem(task.name,taskDiv.classList.contains("checked"))},0);});fragment.appendChild(taskDiv);});taskContainer.appendChild(fragment);}window.onload=showTasks;console.time("renderTasks");showTasks();console.timeEnd("renderTasks");
+    </script>
 </body>
 </html>
