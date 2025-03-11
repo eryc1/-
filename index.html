@@ -18,18 +18,20 @@
         .header {
             background-color: #f5b041;
             color: #000;
-            padding: 8px; /* 减小内边距 */
-            margin-bottom: 15px; /* 减小下边距 */
+            padding: 8px;
+            margin-bottom: 15px;
             border-radius: 5px;
-            font-size: 20px; /* 减小字体大小 */
+            font-size: 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* 任务网格布局 */
         .task-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr); /* 每行 5 列 */
-            gap: 5px; /* 减小间距 */
-            max-width: 900px; /* 设置最大宽度，防止拉伸 */
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -38,15 +40,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 5px; /* 减小内边距 */
+            padding: 5px;
             background-color: #fff;
             border: 2px solid #fff;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            height: 30px; /* 减小高度 */
+            height: 30px;
             color: #000;
-            font-size: 14px; /* 减小字体大小 */
+            font-size: 12px; /* 减小字体大小 */
+            box-sizing: border-box;
         }
 
         .task-item.checked {
@@ -56,11 +59,11 @@
         }
 
         .task-item .checkbox {
-            width: 16px; /* 减小勾选框大小 */
-            height: 16px;
+            width: 14px; /* 减小勾选框大小 */
+            height: 14px;
             border: 2px solid #28a745;
             border-radius: 3px;
-            margin-right: 5px; /* 减小右边距 */
+            margin-right: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,7 +77,7 @@
         .task-item .checkbox::after {
             content: '✓';
             color: #fff;
-            font-size: 12px; /* 减小勾号大小 */
+            font-size: 10px; /* 减小勾号大小 */
             display: none;
         }
 
@@ -84,20 +87,21 @@
 
         /* 任务编号 */
         .task-number {
-            margin-right: 5px; /* 减小右边距 */
+            margin-right: 3px;
             font-weight: bold;
-            font-size: 14px; /* 减小字体大小 */
+            font-size: 12px;
         }
 
         /* 底部标签 */
         .footer {
             background-color: #f5b041;
             color: #000;
-            padding: 8px; /* 减小内边距 */
-            margin-top: 15px; /* 减小上边距 */
+            padding: 8px;
+            margin-top: 15px;
             border-radius: 5px;
-            display: inline-block;
-            font-size: 14px; /* 减小字体大小 */
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 14px;
         }
 
         /* 提示框 */
@@ -105,9 +109,9 @@
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 10px; /* 减小内边距 */
-            margin-top: 15px; /* 减小上边距 */
-            max-width: 600px; /* 减小最大宽度 */
+            padding: 10px;
+            margin-top: 15px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             text-align: left;
@@ -115,19 +119,19 @@
         }
 
         .notice h2 {
-            font-size: 14px; /* 减小字体大小 */
-            margin: 0 0 8px 0; /* 减小下边距 */
+            font-size: 14px;
+            margin: 0 0 8px 0;
         }
 
         .notice p {
-            font-size: 12px; /* 减小字体大小 */
+            font-size: 12px;
             margin: 0;
         }
 
         /* 响应式调整 */
         @media (max-width: 600px) {
             .task-grid {
-                grid-template-columns: repeat(2, 1fr); /* 移动端每行 2 列 */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
