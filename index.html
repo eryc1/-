@@ -18,10 +18,10 @@
         .header {
             background-color: #f5b041;
             color: #000;
-            padding: 8px;
-            margin-bottom: 15px;
+            padding: 10px; /* 恢复原先内边距 */
+            margin-bottom: 20px; /* 恢复原先下边距 */
             border-radius: 5px;
-            font-size: 20px;
+            font-size: 24px; /* 恢复原先字体大小 */
             width: 100%;
             box-sizing: border-box;
         }
@@ -30,8 +30,8 @@
         .task-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 5px;
-            max-width: 900px;
+            gap: 5px; /* 调整间距以接近图片2 */
+            max-width: 900px; /* 调整最大宽度以接近图片2 */
             margin: 0 auto;
         }
 
@@ -40,15 +40,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 5px;
+            padding: 10px; /* 恢复原先内边距 */
             background-color: #fff;
             border: 2px solid #fff;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            height: 30px;
+            height: 50px; /* 恢复原先高度 */
             color: #000;
-            font-size: 12px; /* 减小字体大小 */
+            font-size: 16px; /* 恢复原先字体大小 */
             box-sizing: border-box;
         }
 
@@ -59,11 +59,11 @@
         }
 
         .task-item .checkbox {
-            width: 14px; /* 减小勾选框大小 */
-            height: 14px;
+            width: 20px; /* 恢复原先勾选框大小 */
+            height: 20px;
             border: 2px solid #28a745;
             border-radius: 3px;
-            margin-right: 3px;
+            margin-right: 10px; /* 恢复原先右边距 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -77,7 +77,7 @@
         .task-item .checkbox::after {
             content: '✓';
             color: #fff;
-            font-size: 10px; /* 减小勾号大小 */
+            font-size: 14px; /* 恢复原先勾号大小 */
             display: none;
         }
 
@@ -87,21 +87,21 @@
 
         /* 任务编号 */
         .task-number {
-            margin-right: 3px;
+            margin-right: 10px; /* 恢复原先右边距 */
             font-weight: bold;
-            font-size: 12px;
+            font-size: 16px; /* 恢复原先字体大小 */
         }
 
         /* 底部标签 */
         .footer {
             background-color: #f5b041;
             color: #000;
-            padding: 8px;
-            margin-top: 15px;
+            padding: 10px; /* 恢复原先内边距 */
+            margin-top: 20px; /* 恢复原先上边距 */
             border-radius: 5px;
             width: 100%;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: 16px; /* 恢复原先字体大小 */
         }
 
         /* 提示框 */
@@ -109,9 +109,9 @@
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 10px;
-            margin-top: 15px;
-            max-width: 600px;
+            padding: 15px; /* 恢复原先内边距 */
+            margin-top: 20px; /* 恢复原先上边距 */
+            max-width: 800px; /* 恢复原先最大宽度 */
             margin-left: auto;
             margin-right: auto;
             text-align: left;
@@ -119,12 +119,12 @@
         }
 
         .notice h2 {
-            font-size: 14px;
-            margin: 0 0 8px 0;
+            font-size: 16px; /* 恢复原先字体大小 */
+            margin: 0 0 10px 0; /* 恢复原先下边距 */
         }
 
         .notice p {
-            font-size: 12px;
+            font-size: 14px; /* 恢复原先字体大小 */
             margin: 0;
         }
 
